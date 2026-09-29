@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilot Plans | Manu Mishra</title>
+    <meta
+      name="description"
+      content="Copilot plans page for Manu Mishra's portfolio website."
+    />
+    <style>
+      :root {
+        --bg: #f2f4f8;
+        --surface: #ffffff;
+        --ink: #0e1a3a;
+        --muted: #4a5675;
+        --line: #d3dae8;
+        --accent: #3d5afe;
+        --accent-strong: #1e3cff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+
+      .brand {
+        font-weight: 800;
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: var(--ink);
+      }
+
+      .nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: clamp(24px, 5vw, 52px);
+        box-shadow: 0 10px 30px rgba(14, 26, 58, 0.04);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(61, 90, 254, 0.08);
+        color: var(--accent-strong);
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1.05;
+      }
+
+      p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        max-width: 60ch;
+      }
+
+      .actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.85rem 1.3rem;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 2px solid var(--ink);
+      }
+
+      .btn.primary {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .btn.secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .meta {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .meta-item {
+        padding: 18px 16px;
+        background: #f7f9ff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+
+      .meta-item strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--ink);
+      }
+
+      footer {
+        margin-top: 32px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 600px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="brand" href="../../index.html">Manu Mishra</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="../../index.html#work">Projects</a>
+          <a href="../../index.html#now">Now</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="card">
+        <span class="eyebrow">Feature Page</span>
+        <h1>Copilot Plans</h1>
+        <p>
+          This page was created to cover the <strong>features/copilot/plans</strong> route on the portfolio site.
+          It is currently a structured placeholder page and is ready to be expanded with plans, details, and project notes.
+        </p>
+        <p>
+          The goal here is to make the site feel complete and ensure the requested URL has a real destination instead of a broken or missing page.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="../../index.html">Back to home</a>
+          <a class="btn secondary" href="https://github.com/mishramanu4656-tech">GitHub</a>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item">
+            <strong>Status</strong>
+            Ready for content updates
+          </div>
+          <div class="meta-item">
+            <strong>Route</strong>
+            /features/copilot/plans
+          </div>
+          <div class="meta-item">
+            <strong>Type</strong>
+            Static page placeholder
+          </div>
+        </div>
+      </main>
+
+      <footer>Designed and built by Manu Mishra.</footer>
+    </div>
+  </body>
+</html>
