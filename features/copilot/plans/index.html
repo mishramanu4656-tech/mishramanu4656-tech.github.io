@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Copilot Plans | Manu Mishra</title>
     <meta
       name="description"
-      content="Copilot plans page for Manu Mishra's portfolio website."
+      content="Explore Copilot plan options and feature highlights on Manu Mishra's portfolio website."
     />
     <style>
       :root {
@@ -15,105 +15,136 @@
         --ink: #0e1a3a;
         --muted: #4a5675;
         --line: #d3dae8;
-        --accent: #3d5afe;
-        --accent-strong: #1e3cff;
+        --ui: #3d5afe;
+        --ui-soft: rgba(61, 90, 254, 0.1);
+        --api: #00808a;
+        --data: #f2a900;
+        --infra: #7b4fd0;
+        --ai: #c2185b;
+        --success: #0d8a5f;
+        --shadow: rgba(14, 26, 58, 0.08);
       }
 
       * { box-sizing: border-box; }
 
-      body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-        line-height: 1.6;
+      html {
+        scroll-behavior: smooth;
       }
 
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 400 1.0625rem/1.6 "Segoe UI", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; }
+
       .wrap {
-        max-width: 960px;
+        max-width: 1180px;
         margin: 0 auto;
-        padding: 48px 24px 80px;
+        padding: 24px 24px 80px;
       }
 
       .topbar {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         gap: 16px;
-        margin-bottom: 48px;
+        padding: 8px 0 26px;
       }
 
       .brand {
         font-weight: 800;
         font-size: 1.2rem;
         text-decoration: none;
-        color: var(--ink);
+        letter-spacing: -0.02em;
       }
 
       .nav {
         display: flex;
-        gap: 18px;
+        align-items: center;
+        gap: 24px;
         flex-wrap: wrap;
       }
 
       .nav a {
-        color: var(--muted);
         text-decoration: none;
+        color: var(--muted);
         font-weight: 600;
       }
 
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: clamp(24px, 5vw, 52px);
-        box-shadow: 0 10px 30px rgba(14, 26, 58, 0.04);
+      .nav a:hover { text-decoration: underline; }
+
+      .hero {
+        padding: 52px 0 28px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        gap: 40px;
+        align-items: center;
       }
 
       .eyebrow {
-        display: inline-block;
-        margin-bottom: 16px;
-        padding: 6px 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
         border-radius: 999px;
-        font-size: 0.75rem;
+        background: var(--ui-soft);
+        color: var(--ui);
+        font-size: 0.74rem;
+        font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        background: rgba(61, 90, 254, 0.08);
-        color: var(--accent-strong);
-        font-weight: 700;
       }
 
       h1 {
-        margin: 0 0 18px;
-        font-size: clamp(2.2rem, 5vw, 4rem);
-        line-height: 1.05;
+        margin: 20px 0 16px;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.06em;
       }
 
-      p {
-        margin: 0 0 18px;
+      .hero-copy {
+        margin: 0;
+        font-size: 1.12rem;
         color: var(--muted);
-        max-width: 60ch;
+        max-width: 62ch;
       }
 
       .actions {
         display: flex;
-        gap: 14px;
         flex-wrap: wrap;
-        margin-top: 28px;
+        gap: 14px;
+        margin-top: 30px;
       }
 
       .btn {
-        display: inline-block;
-        padding: 0.85rem 1.3rem;
-        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0.82rem 1.35rem;
+        border-radius: 12px;
+        border: 2px solid var(--ink);
         text-decoration: none;
         font-weight: 700;
-        border: 2px solid var(--ink);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
       }
 
       .btn.primary {
         background: var(--ink);
         color: var(--bg);
+        border-color: var(--ink);
+        box-shadow: 0 12px 26px rgba(14, 26, 58, 0.12);
       }
 
       .btn.secondary {
@@ -121,35 +152,262 @@
         color: var(--ink);
       }
 
-      .meta {
-        margin-top: 32px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 16px;
-      }
-
-      .meta-item {
-        padding: 18px 16px;
-        background: #f7f9ff;
+      .mini-panel {
+        background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 14px;
+        border-radius: 22px;
+        box-shadow: 0 18px 40px var(--shadow);
+        padding: 22px;
       }
 
-      .meta-item strong {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--ink);
-      }
-
-      footer {
-        margin-top: 32px;
+      .mini-panel .panel-title {
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
         color: var(--muted);
-        text-align: center;
+      }
+
+      .mini-panel h2 {
+        margin: 16px 0 12px;
+        font-size: clamp(2rem, 4vw, 2.9rem);
+        letter-spacing: -0.05em;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 14px;
+      }
+
+      .feature-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--muted);
+      }
+
+      .check {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: inline-grid;
+        place-items: center;
+        background: rgba(13, 138, 95, 0.12);
+        color: var(--success);
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .section {
+        padding-top: 48px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .section h3 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        letter-spacing: -0.04em;
+      }
+
+      .muted-link {
+        color: var(--ui);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .plan-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .plan {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px 22px;
+        box-shadow: 0 8px 20px rgba(14, 26, 58, 0.03);
+      }
+
+      .plan.featured {
+        border-color: rgba(61, 90, 254, 0.45);
+        box-shadow: 0 18px 34px rgba(61, 90, 254, 0.12);
+        background: linear-gradient(180deg, rgba(61, 90, 254, 0.04), rgba(255,255,255,1));
+      }
+
+      .plan-tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--ui);
+        background: var(--ui-soft);
+        border-radius: 999px;
+        padding: 6px 10px;
+        margin-bottom: 16px;
+      }
+
+      .plan h4 {
+        margin: 0 0 8px;
+        font-size: 1.55rem;
+      }
+
+      .price {
+        margin: 0 0 18px;
+        display: flex;
+        align-items: end;
+        gap: 8px;
+      }
+
+      .price strong {
+        font-size: 2.35rem;
+        letter-spacing: -0.05em;
+      }
+
+      .price span {
+        color: var(--muted);
         font-size: 0.95rem;
       }
 
-      @media (max-width: 600px) {
+      .plan p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .plan ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .plan li {
+        display: flex;
+        gap: 10px;
+        color: var(--ink);
+      }
+
+      .plan li::before {
+        content: "✓";
+        color: var(--success);
+        font-weight: 700;
+      }
+
+      .plan .btn {
+        width: 100%;
+      }
+
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 30px;
+      }
+
+      .highlight {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px 18px;
+      }
+
+      .highlight .icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+
+      .h-ui { background: rgba(61, 90, 254, 0.1); color: var(--ui); }
+      .h-api { background: rgba(0, 128, 138, 0.1); color: var(--api); }
+      .h-data { background: rgba(242, 169, 0, 0.12); color: #8c6400; }
+      .h-ai { background: rgba(194, 24, 91, 0.08); color: var(--ai); }
+
+      .highlight h5 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+
+      .highlight p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cta {
+        margin-top: 56px;
+        background: var(--ink);
+        color: var(--bg);
+        border-radius: 24px;
+        padding: clamp(28px, 5vw, 56px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .cta h3 {
+        margin: 0 0 8px;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        letter-spacing: -0.04em;
+      }
+
+      .cta p {
+        margin: 0;
+        color: rgba(255,255,255,0.8);
+      }
+
+      .cta .btn.primary {
+        background: var(--bg);
+        color: var(--ink);
+        border-color: var(--bg);
+      }
+
+      footer {
+        padding-top: 36px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .plan-grid,
+        .highlights {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .wrap { padding-left: 18px; padding-right: 18px; }
         .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .plan-grid,
+        .highlights {
+          grid-template-columns: 1fr;
+        }
+        .section-head {
           flex-direction: column;
           align-items: flex-start;
         }
@@ -160,43 +418,134 @@
     <div class="wrap">
       <header class="topbar">
         <a class="brand" href="../../index.html">Manu Mishra</a>
-        <nav class="nav" aria-label="Main navigation">
+        <nav class="nav" aria-label="Primary">
           <a href="../../index.html#work">Projects</a>
           <a href="../../index.html#now">Now</a>
           <a href="../../index.html#contact">Contact</a>
         </nav>
       </header>
 
-      <main class="card">
-        <span class="eyebrow">Feature Page</span>
-        <h1>Copilot Plans</h1>
-        <p>
-          This page was created to cover the <strong>features/copilot/plans</strong> route on the portfolio site.
-          It is currently a structured placeholder page and is ready to be expanded with plans, details, and project notes.
-        </p>
-        <p>
-          The goal here is to make the site feel complete and ensure the requested URL has a real destination instead of a broken or missing page.
-        </p>
+      <main>
+        <section class="hero">
+          <div class="hero-grid">
+            <div>
+              <span class="eyebrow">Feature overview</span>
+              <h1>Copilot Plans</h1>
+              <p class="hero-copy">
+                Build faster, think clearer, and ship more confidently with an AI-powered workflow that supports planning,
+                implementation, and delivery across the stack.
+              </p>
+              <div class="actions">
+                <a class="btn primary" href="#plans">Explore plans</a>
+                <a class="btn secondary" href="../../index.html">Back home</a>
+              </div>
+            </div>
 
-        <div class="actions">
-          <a class="btn primary" href="../../index.html">Back to home</a>
-          <a class="btn secondary" href="https://github.com/mishramanu4656-tech">GitHub</a>
-        </div>
+            <aside class="mini-panel" aria-label="Plan summary">
+              <div class="panel-title">Annual value</div>
+              <h2>Smarter development</h2>
+              <ul class="feature-list">
+                <li><span class="check">✓</span> Code generation for repetitive tasks and starter scaffolds</li>
+                <li><span class="check">✓</span> Faster debugging and cleaner refactoring support</li>
+                <li><span class="check">✓</span> Better planning with structured prompts and system thinking</li>
+                <li><span class="check">✓</span> Team-ready workflows for modern, lean delivery</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
 
-        <div class="meta">
-          <div class="meta-item">
-            <strong>Status</strong>
-            Ready for content updates
+        <section class="section" id="plans">
+          <div class="section-head">
+            <h3>Choose the right plan</h3>
+            <a class="muted-link" href="../../index.html#contact">Talk to me</a>
           </div>
-          <div class="meta-item">
-            <strong>Route</strong>
-            /features/copilot/plans
+
+          <div class="plan-grid">
+            <article class="plan">
+              <span class="plan-tag">Starter</span>
+              <h4>For learning</h4>
+              <div class="price">
+                <strong>$0</strong>
+                <span>/ month</span>
+              </div>
+              <p>Perfect for getting comfortable with AI-assisted coding in small projects.</p>
+              <ul>
+                <li>Basic code suggestions</li>
+                <li>Simple prompt workflows</li>
+                <li>Learning-focused support</li>
+              </ul>
+              <a class="btn secondary" href="#">Get started</a>
+            </article>
+
+            <article class="plan featured">
+              <span class="plan-tag">Most popular</span>
+              <h4>Pro</h4>
+              <div class="price">
+                <strong>$19</strong>
+                <span>/ month</span>
+              </div>
+              <p>For developers who want fast iteration, better debugging, and stronger day-to-day output.</p>
+              <ul>
+                <li>Advanced code generation</li>
+                <li>Context-aware assistance</li>
+                <li>Faster iteration cycles</li>
+              </ul>
+              <a class="btn primary" href="#">Choose Pro</a>
+            </article>
+
+            <article class="plan">
+              <span class="plan-tag">Scale</span>
+              <h4>Team</h4>
+              <div class="price">
+                <strong>$39</strong>
+                <span>/ month</span>
+              </div>
+              <p>Built for collaborative engineering teams that need speed without sacrificing quality.</p>
+              <ul>
+                <li>Shared team workflows</li>
+                <li>Standardized conventions</li>
+                <li>Higher productivity at scale</li>
+              </ul>
+              <a class="btn secondary" href="#">Talk to sales</a>
+            </article>
           </div>
-          <div class="meta-item">
-            <strong>Type</strong>
-            Static page placeholder
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h3>Why it works</h3>
           </div>
-        </div>
+          <div class="highlights">
+            <article class="highlight">
+              <div class="icon h-ui">UI</div>
+              <h5>Interface</h5>
+              <p>Design better user flows and write cleaner front-end logic faster.</p>
+            </article>
+            <article class="highlight">
+              <div class="icon h-api">API</div>
+              <h5>Server</h5>
+              <p>Summarize endpoints, generate routes, and reduce boilerplate friction.</p>
+            </article>
+            <article class="highlight">
+              <div class="icon h-data">DB</div>
+              <h5>Data</h5>
+              <p>Model queries and organize logic so data handling becomes clearer.</p>
+            </article>
+            <article class="highlight">
+              <div class="icon h-ai">AI</div>
+              <h5>Automation</h5>
+              <p>Turn repetitive tasks into scalable workflows and smarter delivery loops.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="cta" aria-label="Call to action">
+          <div>
+            <h3>Build more with less friction</h3>
+            <p>Start with one feature, ship with clarity, and keep improving every release.</p>
+          </div>
+          <a class="btn primary" href="../../index.html#contact">Get in touch</a>
+        </section>
       </main>
 
       <footer>Designed and built by Manu Mishra.</footer>
